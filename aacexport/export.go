@@ -18,7 +18,7 @@ import (
 
 	"github.com/action-state-group/agent-action-capsule/go/canonical"
 
-	"github.com/action-state-group/dapr-aac-export/daprhistory"
+	"github.com/action-state-group/capsule-emit-dapr/daprhistory"
 )
 
 // SpecVersion and FormatVersion are the profile versions this exporter

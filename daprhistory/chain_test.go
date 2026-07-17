@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/action-state-group/dapr-aac-export/daprhistory"
-	"github.com/action-state-group/dapr-aac-export/internal/testfixture"
+	"github.com/action-state-group/capsule-emit-dapr/daprhistory"
+	"github.com/action-state-group/capsule-emit-dapr/internal/testfixture"
 )
 
 func mustSigner(t *testing.T, index uint64, trustDomain, ns, appID string) *testfixture.SignerCert {

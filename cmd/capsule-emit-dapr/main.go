@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 //
-// Command dapr-aac-export reads a directory of state-store-shaped fixture
+// Command capsule-emit-dapr reads a directory of state-store-shaped fixture
 // files (see README for the exact file naming/format) representing one
 // signed Dapr 1.18 workflow history, verifies the signature chain, projects
 // it into an Agent Action Capsule, and prints the capsule as JSON on
@@ -21,9 +21,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/action-state-group/dapr-aac-export/aacexport"
-	"github.com/action-state-group/dapr-aac-export/anchor"
-	"github.com/action-state-group/dapr-aac-export/daprhistory"
+	"github.com/action-state-group/capsule-emit-dapr/aacexport"
+	"github.com/action-state-group/capsule-emit-dapr/anchor"
+	"github.com/action-state-group/capsule-emit-dapr/daprhistory"
 )
 
 func main() {

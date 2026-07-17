@@ -10,8 +10,8 @@ import (
 	"github.com/action-state-group/agent-action-capsule/go/registries"
 	"github.com/action-state-group/agent-action-capsule/go/verify"
 
-	"github.com/action-state-group/dapr-aac-export/daprhistory"
-	"github.com/action-state-group/dapr-aac-export/internal/testfixture"
+	"github.com/action-state-group/capsule-emit-dapr/daprhistory"
+	"github.com/action-state-group/capsule-emit-dapr/internal/testfixture"
 )
 
 // registryPath locates this repository's vendored copy of the profile's

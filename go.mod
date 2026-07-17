@@ -1,4 +1,4 @@
-module github.com/action-state-group/dapr-aac-export
+module github.com/action-state-group/capsule-emit-dapr
 
 go 1.21
 

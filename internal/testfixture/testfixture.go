@@ -19,7 +19,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/action-state-group/dapr-aac-export/daprhistory"
+	"github.com/action-state-group/capsule-emit-dapr/daprhistory"
 )
 
 // SignerCert is a synthetic signing identity: an Ed25519 keypair and a

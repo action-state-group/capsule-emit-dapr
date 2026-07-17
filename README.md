@@ -1,4 +1,4 @@
-# dapr-aac-export
+# capsule-emit-dapr
 
 A Go adapter that turns a **Dapr 1.18 signed workflow history** into an
 **Agent Action Capsule (AAC)**, per `draft-mih-scitt-agent-action-capsule-02`.
@@ -10,7 +10,7 @@ then projects it into a well-formed, verifier-passing Capsule.
 
 ```
 go test ./...
-go run ./cmd/dapr-aac-export -dir examples/happy-path
+go run ./cmd/capsule-emit-dapr -dir examples/happy-path
 ```
 
 No Dapr cluster, no adjacent checkout, and no configuration required — the
@@ -42,7 +42,7 @@ Specifically:
   genuinely deterministic for our purposes) as a stand-in. See "Judgment
   calls" below.
 - **No cert-chain-to-root validation is wired into the CLI.** `daprhistory.VerifyOptions.TrustRoots`
-  exists and `VerifyChain` will use it if supplied, but `cmd/dapr-aac-export`
+  exists and `VerifyChain` will use it if supplied, but `cmd/capsule-emit-dapr`
   never populates it, so by default only the signature math is checked, not
   that certs chain to a Sentry CA bundle.
 - **Batch boundaries, the definition of "the previous signature's digest,"
@@ -82,7 +82,7 @@ If you are a Dapr/Diagrid maintainer reading this: please treat every
    always non-fatal and reported as a `Result{Anchored: false, Err: ...}` —
    the capsule remains a complete, valid, `self_attested` Agent Action
    Capsule whether or not anchoring succeeds.
-4. **`cmd/dapr-aac-export/`** — a CLI: `-dir <fixture-dir>` reads a directory
+4. **`cmd/capsule-emit-dapr/`** — a CLI: `-dir <fixture-dir>` reads a directory
    of state-store-shaped fixture files (one JSON file per state-store key —
    see "Fixture file format" below), verifies the chain, and prints the
    resulting capsule as JSON on stdout. `-anchor` optionally attempts
@@ -276,10 +276,10 @@ go test ./...
 go run ./cmd/gen-example-fixtures
 
 # Export a capsule from a fixture directory:
-go run ./cmd/dapr-aac-export -dir examples/happy-path
+go run ./cmd/capsule-emit-dapr -dir examples/happy-path
 
 # ...with an operator override and an anchor attempt:
-go run ./cmd/dapr-aac-export -dir examples/happy-path -operator my-tenant -anchor
+go run ./cmd/capsule-emit-dapr -dir examples/happy-path -operator my-tenant -anchor
 ```
 
 `examples/happy-path/` is a single-signer, single-batch history ending in
@@ -340,7 +340,7 @@ Organization:
 : Action State Group, Inc.
 
 Implementation URL:
-: https://github.com/action-state-group/dapr-aac-export
+: https://github.com/action-state-group/capsule-emit-dapr
 
 Description:
 : An Apache-2.0 Go adapter that verifies a Dapr 1.18 signed workflow
