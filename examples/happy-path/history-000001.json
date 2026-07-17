@@ -1,0 +1,9 @@
+{
+  "index": 1,
+  "event_type": "TaskScheduled",
+  "timestamp": "2026-07-16T09:00:01Z",
+  "instance_id": "wf-book-venue-20260716-1",
+  "attributes": {
+    "activity": "charge_card"
+  }
+}

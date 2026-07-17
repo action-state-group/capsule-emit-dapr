@@ -1,0 +1,9 @@
+{
+  "index": 1,
+  "from_event_index": 2,
+  "to_event_index": 3,
+  "cert_index": 1,
+  "algorithm": "ed25519",
+  "prev_signature_digest": "sfUwYIAWJvCSBjrD/uej2kaSQFXrweO0u5r31F7GoJ0=",
+  "signature": "FWRyUj29h8kS5Ed3XUlCDx4I+APOcefUGRNTmov6BsMrJbBI/OiKH5pEXGmPA8vUsFF1hzW1HTh8M5bB/JsXDA=="
+}

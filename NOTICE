@@ -1,0 +1,29 @@
+dapr-aac-export
+Copyright 2026 Action State Group, Inc.
+
+This product includes software developed at Action State Group, Inc.
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+--------------------------------------------------------------------------
+Third-party and vendored material
+--------------------------------------------------------------------------
+
+github.com/action-state-group/agent-action-capsule/go
+    The Agent Action Capsule Class 1 verifier and canonicalization library.
+    Licensed under BSD-3-Clause. Consumed as a Go module dependency; see
+    go.mod for the pinned version.
+
+testdata/REGISTRY.md
+    A pinned copy of spec/REGISTRY.md from
+    https://github.com/action-state-group/agent-action-capsule, the interim
+    registry of record mirroring the IANA registries defined in
+    draft-mih-scitt-agent-action-capsule-02 Section 12.
+
+    Copied at commit 8e3895d ("release: agent-action-capsule 0.1.0").
+    Specification text is governed by the IETF Trust's terms (BCP 78/79);
+    code components are under the Revised BSD License.
+
+    It is vendored so this repository clones and tests standalone, with no
+    adjacent agent-action-capsule checkout. It is a COPY and can drift from
+    upstream; refresh it if the registry gains values this exporter emits.

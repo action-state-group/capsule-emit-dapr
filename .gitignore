@@ -1,0 +1,7 @@
+# Go
+*.exe
+*.test
+*.out
+
+# Editors / OS
+.DS_Store

@@ -1,0 +1,8 @@
+{
+  "index": 0,
+  "from_event_index": 0,
+  "to_event_index": 1,
+  "cert_index": 0,
+  "algorithm": "ed25519",
+  "signature": "rMsY6zfXu8j2gUCaUjqO9J0C8GppYznyUuvatK6PQJ6gkurqNDOr0cPYXRYlVtBmBpOddXZk8Je7qZ3XUyWtAA=="
+}

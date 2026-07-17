@@ -1,0 +1,10 @@
+{
+  "index": 2,
+  "event_type": "TaskCompleted",
+  "timestamp": "2026-07-16T09:00:02Z",
+  "instance_id": "wf-book-venue-20260716-1",
+  "attributes": {
+    "activity": "charge_card",
+    "result": "ok"
+  }
+}

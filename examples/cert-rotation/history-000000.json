@@ -1,0 +1,7 @@
+{
+  "index": 0,
+  "event_type": "ExecutionStarted",
+  "timestamp": "2026-07-16T09:00:00Z",
+  "instance_id": "wf-book-venue-20260716-2",
+  "name": "BookVenue"
+}
