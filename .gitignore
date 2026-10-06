@@ -5,3 +5,7 @@
 
 # Editors / OS
 .DS_Store
+
+# Local secrets: never commit an env file.
+.env
+.env.*
