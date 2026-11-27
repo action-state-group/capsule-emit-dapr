@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: Apache-2.0
+# The README's documented check (go vet, go test, the example runs), on every
+# pull request and every push to main. Plain `pull_request`: this job builds and
+# runs the pull request's code, so it must never receive secrets (see the
+# warning in neutrality.yml).
+#
+# The example fixtures are not regenerated and diffed: cmd/gen-example-fixtures
+# mints fresh keys and certificates on every run, so its output never matches
+# the committed files byte for byte. Running the CLI against the committed
+# fixtures checks that they still verify and export.
+name: go
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: go-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-go@v7
+        with:
+          go-version: stable
+          cache-dependency-path: go.sum
+
+      - name: gofmt
+        run: |
+          unformatted="$(gofmt -l .)"
+          if [ -n "$unformatted" ]; then
+            echo "gofmt needed on:"; echo "$unformatted"; exit 1
+          fi
+
+      - name: go mod tidy is clean
+        run: |
+          go mod tidy
+          git diff --exit-code go.mod go.sum
+
+      - name: go vet
+        run: go vet ./...
+
+      - name: go test -race
+        run: go test -race ./...
+
+      - name: Example runs (committed fixtures verify and export)
+        run: |
+          go run ./cmd/capsule-emit-dapr -dir examples/happy-path >/dev/null
+          go run ./cmd/capsule-emit-dapr -dir examples/cert-rotation >/dev/null
